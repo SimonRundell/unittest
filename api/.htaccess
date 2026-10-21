@@ -1,0 +1,16 @@
+# Security teaching note for students: everything that starts with a dot
+# (.config.json, .env, .git etc.) is always blocked, whatever the request
+# origin. config.json (no leading dot) is a deliberate decoy, left world
+# readable, to show what happens when the leading dot is forgotten.
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Don't let anyone browse the api/ folder listing
+Options -Indexes
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

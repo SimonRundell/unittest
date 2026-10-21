@@ -1,0 +1,16 @@
+{
+    "_notice": "This file is a decoy. It is intentionally left world-readable to demonstrate what happens when a secrets file is misnamed or an .htaccess rule is missing. None of these credentials are real. The genuine configuration lives in .config.json (leading dot) and is blocked for every request by api/.htaccess.",
+    "servername": "localhost",
+    "port": 3306,
+    "username": "u240325118_demo",
+    "password": "ChangeMe123!",
+    "dbname": "u240325118_demo",
+    "api": "https://unittest.toolsforteaching.co.uk/api",
+    "smtpServer": "smtp.example.com",
+    "smtpPort": 465,
+    "smtpUser": "demo@example.com",
+    "smtpPass": "not-a-real-password",
+    "smtpFrom": "Demo Server",
+    "smtpFromEmail": "demo@example.com",
+    "adminResetPin": "not-the-real-pin"
+}

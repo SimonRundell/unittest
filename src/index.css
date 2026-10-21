@@ -1,0 +1,204 @@
+:root {
+  color-scheme: light dark;
+  font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+  --color-bg: #f4f6f8;
+  --color-card: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #5a6472;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-danger: #dc2626;
+  --color-border: #d7dce1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.auth-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.auth-card h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.6rem;
+}
+
+.auth-card label {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+.auth-card input,
+.auth-card select {
+  padding: 0.6rem 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.auth-switch {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.button.primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.button.primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.button.primary:disabled {
+  background: #93adcf;
+  cursor: not-allowed;
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  margin-right: 0.5rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 50;
+}
+
+.modal-box {
+  background: var(--color-card);
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-box h2 {
+  margin-top: 0;
+  color: var(--color-danger);
+}
+
+.modal-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.class-reset-cog {
+  position: fixed;
+  left: 14px;
+  bottom: 14px;
+  z-index: 20;
+}
+
+.class-reset-cog__trigger {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #c3c9cf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.class-reset-cog__trigger:hover {
+  color: #9aa2ab;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.class-reset-cog__popover {
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.9rem;
+  width: 220px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.class-reset-cog__popover p {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+.class-reset-cog__popover input {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.class-reset-cog__actions {
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.class-reset-cog__actions .button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}

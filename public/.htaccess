@@ -1,0 +1,19 @@
+# SPA fallback: this is a client-side router (React Router), so paths like
+# /login or /register only exist in the browser, not as real files on the
+# server. Without this, refreshing or deep-linking to them 404s because
+# Apache looks for a file called "login" and finds nothing.
+#
+# Leaves /api/* and any request that matches a real file or directory
+# (JS/CSS bundles, favicon, etc.) completely alone - only unmatched,
+# non-API paths fall back to index.html so the SPA can take over routing.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+Options -Indexes
