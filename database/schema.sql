@@ -28,3 +28,9 @@ CREATE TABLE IF NOT EXISTS sessions (
     KEY idx_sessions_user_id (user_id),
     CONSTRAINT fk_sessions_user FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Fixed QA test account: test@test.com / 1234 (validated, unlocked).
+-- INSERT IGNORE so re-running the schema never duplicates it. To reset a
+-- locked or modified account, run: php database/seed.php
+INSERT IGNORE INTO users (email, password_hash, country_code, locale, is_validated)
+VALUES ('test@test.com', '$2y$12$4IpAlqgROvNagZLG56SQueq5Lp8LsG8xscmxXWyanaaZ1NWGCOiVa', 'US', 'en-US', 1);

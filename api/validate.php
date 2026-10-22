@@ -73,8 +73,11 @@ if (strtotime($user['validation_token_expires']) < time()) {
     );
 }
 
+// The token is deliberately kept after use. Mail scanners and link previews
+// often open the link before the user does; if the token were cleared, the
+// real click would show "not recognised" instead of "Already verified".
 $pdo->prepare(
-    'UPDATE users SET is_validated = 1, validation_token = NULL, validation_token_expires = NULL WHERE id = :id'
+    'UPDATE users SET is_validated = 1 WHERE id = :id'
 )->execute(['id' => $user['id']]);
 
 renderPage('Email validated', 'Your email address has been validated. You can now log in.', $loginUrl);
